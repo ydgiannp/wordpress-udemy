@@ -1,0 +1,6 @@
+{
+    "require": {
+        "timber/timber": "^1.9",
+        "twbs/bootstrap": "4.3.1"
+    }
+}

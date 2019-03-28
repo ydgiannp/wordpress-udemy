@@ -1,0 +1,58 @@
+{% extends "base.twig" %}
+ {% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+               
+            	<div class="content-wrapper">
+            		<article class="post-type-{{ post.post_type }}" id="post-{{ post.ID }}">
+            			{#<img src="{{ post.thumbnail.src|resize(1200, 300) }}">#}
+            			<section class="article-content">
+            				<h1 class="article-h1">{{ post.title }}</h1>
+            				<p class="blog-author">
+            					<i class="fas fa-user">&nbsp;{{ post.author.name }} </i>
+            					<br>
+            					<i class="far fa-clock">&nbsp;{{ post.date }} </i>
+            				</p>
+            				
+            				<div class="article-body">
+            					{{post.content}}
+            				</div>
+            			</section>
+            			
+            			<div class="alert alert-secondary" role="alert">
+                          Editor:  {{ post.get_field('editor') }}
+                        </div>
+            
+            			<!-- comment box -->
+            			<section class="comment-box">
+            				<!-- comments -->
+            				<div class="comments">
+            				    {% if post.comments %}
+            					<h3> comments </h3>
+            					{% for cmt in post.comments %}
+            					    {% include "comment.twig" with {comment:cmt} %}
+            					{% endfor %}
+            				    {% endif %}
+            				</div>
+            
+            				{% if post.comment_status == "closed" %}
+            					<p> comments for this post are closed </p>
+            				{% else %}
+            				    <!-- comment form -->
+            				    {% include "comment-form.twig" %}
+            				{% endif %}
+            			</section>
+            		</article>
+            	</div><!-- /content-wrapper -->
+                
+            </div>
+            <div class="col-lg-4">
+                <aside class="my-sidebar">
+                    {{single_sidebar}}
+                </aside>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,4 @@
+<h3>Newest Stories</h3>
+{% for post in newest %}
+    <h4><a href="{{post.get_path}}">{{post.post_title}}</a></h4>
+{% endfor %}
