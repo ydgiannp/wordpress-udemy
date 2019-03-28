@@ -1,7 +1,7 @@
 # Tugas Project UDemy
 Cara Penggunaan
 1. Ambil theme dari Repo
-2. Sebelum dipasang, jalankan 'composer install'
+2. Sebelum dipasang, install Timber dengan cara menjalankan 'composer install' pada console
 3. Baru theme-nya boleh dipasang
 
 # Dependencies:
